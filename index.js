@@ -3,14 +3,7 @@ const findUpperCase = function (str, options = {}) {
 		throw new TypeError('first argument should be a string');
 	}
 
-	const upperCaseWords = [];
-	const words = getWords(str, options);
-
-	words.forEach(w => {
-		if (w.toUpperCase() === w) {
-			upperCaseWords.push(w);
-		}
-	});
+	const upperCaseWords = getUpperCaseWords(str, options);
 
 	return filterList(upperCaseWords, options);
 };
@@ -28,14 +21,7 @@ const findLowerCase = function (str, options = {}) {
 		throw new TypeError('first argument should be a string');
 	}
 
-	const lowerCaseWords = [];
-	const words = getWords(str, options);
-
-	words.forEach(w => {
-		if (w.toLowerCase() === w) {
-			lowerCaseWords.push(w);
-		}
-	});
+	const lowerCaseWords = getLowerCaseWords(str, options);
 
 	return filterList(lowerCaseWords, options);
 };
@@ -49,12 +35,23 @@ const countLowerCase = function (str, options = {}) {
 };
 
 // Helper
-const getWords = function (str, options) {
+const getUpperCaseWords = function (str, options) {
 	let words = [];
 	if (options.contraction === false) {
-		words = str.match(/[A-Za-z]+/g);
+		words = str.match(/(\b[A-Z][A-Z]+|\b[A-Z]\b)/g);
 	} else {
-		words = str.match(/[A-Za-z']+/g);
+		words = str.match(/(\b[A-Z]['A-Z]+|\b[A-Z]\b)/g);
+	}
+
+	return words;
+};
+
+const getLowerCaseWords = function (str, options) {
+	let words = [];
+	if (options.contraction === false) {
+		words = str.match(/(\b[a-z][a-z]+|\b[a-z]\b)/g);
+	} else {
+		words = str.match(/(\b[a-z]['a-z]+|\b[a-z]\b)/g);
 	}
 
 	return words;
