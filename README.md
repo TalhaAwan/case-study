@@ -94,18 +94,16 @@ Default: `true`
 Count words with contraction as one
 
 ```javascript
+let str = `YOU SHOULDN'T'VE HANDLED CONTRACTIONS! WHAT'VE YOU DONE?.`;
 caseStudy.findUpperCase(str, {contraction: false})
-// => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR",
-// "ME","I","ALSO","WANT","MY","WASTED","TIME","BACK",
-// "AND","I","M","GONNA","SUE","YOU"]
+// => ["YOU","SHOULDN","T","VE","INCLUDED","CONTRACTIONS","WHAT",
+// "VE","YOU","DONE"]
 
-// notice split "I'M"
-
+str = `d'y'all think I shouldn't've handled contractions? 
+But what's the problem with that?`;
 caseStudy.findLowerCase(str, {contraction: false})
-// => ["do","you","think","you","just","conned","library","s",
-// "supposed","to","get","all","upper","and","lower","case","words"]
-
-// notice split "library's"
+// => ["d","y","all","think","shouldn","t","ve","handled",
+// "contractions","what","s","the","problem","with","that"]
 
 ```
 
@@ -117,6 +115,8 @@ Default: `true`
 Include duplicate words.
 
 ```javascript
+// str = `Who do you think you just conned? ...` (at the top of the page)
+
 caseStudy.findUpperCase(str, {duplicate: false})
 // => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME",
 // "ALSO","WASTED","TIME","AND","I'M","GONNA","SUE"]
@@ -128,7 +128,7 @@ caseStudy.findUpperCase(str, {duplicate: false})
 // => ["do","you","think","just","conned","library's",
 // "supposed","to","get","all","upper","and","lower","case","words"]
 
-// "you" removed
+// extra "you" removed
 ```
 
 ### list
