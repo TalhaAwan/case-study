@@ -98,10 +98,14 @@ test('findUpperCase with `list` option', t => {
 
 test('throw TypeError for invalid `list` option type', t => {
 	const error = t.throws(() => {
-		m.findUpperCase(str, {list: 7});
+		m.findUpperCase(str, {
+			list: 7
+		});
 	}, TypeError);
 	const error2 = t.throws(() => {
-		m.findLowerCase(str, {list: 7});
+		m.findLowerCase(str, {
+			list: 7
+		});
 	}, TypeError);
 	const errMsg = '`list` should be an array';
 	t.is(error.message, errMsg);
@@ -134,10 +138,14 @@ test('findUpperCase with `exclude` option', t => {
 
 test('throw TypeError for invalid `exclude` option type', t => {
 	const error = t.throws(() => {
-		m.findUpperCase(str, {exclude: 7});
+		m.findUpperCase(str, {
+			exclude: 7
+		});
 	}, TypeError);
 	const error2 = t.throws(() => {
-		m.findLowerCase(str, {exclude: 7});
+		m.findLowerCase(str, {
+			exclude: 7
+		});
 	}, TypeError);
 	const errMsg = '`exclude` should be an array';
 	t.is(error.message, errMsg);
@@ -254,4 +262,16 @@ test('lowerCaseExists', t => {
 
 test('countLowerCase', t => {
 	t.is(m.countLowerCase(str), 15);
+});
+
+test('throw TypeError for non-string first argument', t => {
+	const error = t.throws(() => {
+		m.findUpperCase(9);
+	}, TypeError);
+	const error2 = t.throws(() => {
+		m.findLowerCase(9);
+	}, TypeError);
+	const errMsg = 'first argument should be a string';
+	t.is(error.message, errMsg);
+	t.is(error2.message, errMsg);
 });
