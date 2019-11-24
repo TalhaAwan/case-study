@@ -18,13 +18,11 @@ I WANT MY MONEY BACK ... DO YOU HEAR ME? I ALSO WANT MY WASTED TIME BACK!!!
 AND I'M GONNA SUE YOU.`;
 
 caseStudy.findUpperCase(str);
-
 // => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME",
 // "I","ALSO","WANT","MY","WASTED","TIME","BACK","AND","I'M",
 // "GONNA","SUE","YOU"]
 
 caseStudy.findLowerCase(str);
-
 // => ["do","you","think","you","just","conned","library's",
 // "supposed","to","get","all","upper","and","lower","case","words"]
 
@@ -45,12 +43,10 @@ Returns `Boolean`
 ```javascript
 const str = "This text does not have an uppercase word.";
 caseStudy.upperCaseExists(str);
-
 // => false
 
 const str = "This text DOES have an uppercase word.";
 caseStudy.upperCaseExists(str);
-
 // => true
 ```
 
@@ -60,12 +56,10 @@ Returns `Boolean`
 
 const str = "GET OVER WITH THESE EXAMPLES ALREADY!";
 caseStudy.lowerCaseExists(str);
-
 // => false
 
 const str = "Please get over with these examples as quickly as possible.";
 caseStudy.lowerCaseExists(str);
-
 // => true
 ```
 
