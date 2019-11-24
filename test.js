@@ -2,7 +2,9 @@ import test from 'ava';
 import m from '.';
 const str = `"THERE IS NO HARRY POTTER HERE!" he roared, now holding the receiver at arm's length, as though frightened it 
   might explode. "I DON'T KNOW WHAT SCHOOL YOU'RE TALKING ABOUT! NEVER CONTACT ME AGAIN! DON'T YOU COME NEAR MY FAMILY!"`;
-
+const doubleContractionUC = 'YOU SHOULDN\'T\'VE HANDLED CONTRACTIONS! WHAT\'VE YOU DONE?.';
+const doubleContractionLC = `d'y'all think I shouldn't've handled contractions? 
+But what's the problem with that?`;
 test('findUpperCase', t => {
 	t.deepEqual(m.findUpperCase(str), ['THERE',
 		'IS',
@@ -28,6 +30,14 @@ test('findUpperCase', t => {
 		'NEAR',
 		'MY',
 		'FAMILY']);
+
+	t.deepEqual(m.findUpperCase(doubleContractionUC), ['YOU',
+		'SHOULDN\'T\'VE',
+		'HANDLED',
+		'CONTRACTIONS',
+		'WHAT\'VE',
+		'YOU',
+		'DONE']);
 });
 
 test('findUpperCase with option `contraction` === false', t => {
@@ -60,6 +70,19 @@ test('findUpperCase with option `contraction` === false', t => {
 		'NEAR',
 		'MY',
 		'FAMILY']);
+
+	t.deepEqual(m.findUpperCase(doubleContractionUC, {
+		contraction: false
+	}), ['YOU',
+		'SHOULDN',
+		'T',
+		'VE',
+		'HANDLED',
+		'CONTRACTIONS',
+		'WHAT',
+		'VE',
+		'YOU',
+		'DONE']);
 });
 
 test('findUpperCase with option `duplicate` === false', t => {
@@ -176,6 +199,17 @@ test('findLowerCase', t => {
 		'it',
 		'might',
 		'explode']);
+
+	t.deepEqual(m.findLowerCase(doubleContractionLC), ['d\'y\'all',
+		'think',
+		'shouldn\'t\'ve',
+		'handled',
+		'contractions',
+		'what\'s',
+		'the',
+		'problem',
+		'with',
+		'that']);
 });
 
 test('findLowerCase with option `contraction` === false', t => {
@@ -197,6 +231,25 @@ test('findLowerCase with option `contraction` === false', t => {
 		'it',
 		'might',
 		'explode']);
+
+	t.deepEqual(m.findLowerCase(doubleContractionLC, {
+		contraction: false
+	}), ['d',
+		'y',
+		'all',
+		'think',
+		'shouldn',
+		't',
+		've',
+		'handled',
+		'contractions',
+		'what',
+		's',
+		'the',
+		'problem',
+		'with',
+		'that']
+	);
 });
 
 test('findLowerCase with option `duplicate` === false', t => {
