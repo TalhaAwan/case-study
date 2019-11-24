@@ -36,15 +36,48 @@ Returns an `Array` of lower case words
 
 ### upperCaseExists(str, options)
 Returns `Boolean`
+```javascript
+const str = "This text does not have an uppercase word.";
+m.upperCaseExists(str);
+
+// => false
+
+const str = "This text DOES have an uppercase word.";
+m.upperCaseExists(str);
+
+// => true
+```
 
 ### lowerCaseExists(str, options)
 Returns `Boolean`
+```javascript
+
+const str = "GET OVER WITH THESE EXAMPLES ALREADY!";
+m.lowerCaseExists(str);
+
+// => false
+
+const str = "Please get over with these examples as quickly as possible.";
+m.lowerCaseExists(str);
+
+// => true
+```
 
 ### countUpperCase(str, options)
 Returns `Number`
+```javascript
+const str = "FBI! HANDS BEHIND YOUR BACK AND GET DOWN ON THE FLOOR, NOW!";
+m.countUpperCase(str)
+// => 12
+```
 
 ### countLowerCase(str, options)
 Returns `Number`
+```javascript
+const str = "You have the right to remain silent. Anything you say can and will be used against you in a court of law."
+m.countUpperCase(str)
+// => 20
+```
 
 ___
 
@@ -83,7 +116,7 @@ Include duplicate words.
 m.findUpperCase(str, {duplicate: false})
 // => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME","ALSO","WASTED","TIME","AND","I'M","GONNA","SUE"]
 
-// "I", "WANT", "MY", "BACK" and "YOU" duplicate removed
+// "I", "WANT", "MY", "BACK" and "YOU" duplicates removed
 
 
 m.findUpperCase(str, {duplicate: false})
