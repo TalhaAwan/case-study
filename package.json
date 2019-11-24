@@ -1,0 +1,26 @@
+{
+  "name": "case-study",
+  "version": "1.0.0",
+  "description": "Find, count or verify uppercase and lowercase words in a string",
+  "main": "index.js",
+  "repository": "TalhaAwan/case-study",
+  "homepage": "https://github.com/TalhaAwan/case-study#readme",
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "keywords": [
+    "uppercase",
+    "lowercase",
+    "find",
+    "count",
+    "exists",
+    "verify",
+    "string"
+  ],
+  "author": "Talha Awan",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^2.4.0",
+    "xo": "^0.25.3"
+  }
+}
