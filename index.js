@@ -1,4 +1,8 @@
 const findUpperCase = function (str, options = {}) {
+	if (typeof str !== 'string') {
+		throw new TypeError('first argument should be a string');
+	}
+
 	const upperCaseWords = [];
 	const words = getWords(str, options);
 
@@ -12,16 +16,7 @@ const findUpperCase = function (str, options = {}) {
 };
 
 const upperCaseExists = function (str, options = {}) {
-	const words = getWords(str, options);
-	let exists = false;
-	for (const w of words) {
-		if (w.toUpperCase() === w) {
-			exists = true;
-			break;
-		}
-	}
-
-	return exists;
+	return Boolean(findUpperCase(str, options).length);
 };
 
 const countUpperCase = function (str, options = {}) {
@@ -29,6 +24,10 @@ const countUpperCase = function (str, options = {}) {
 };
 
 const findLowerCase = function (str, options = {}) {
+	if (typeof str !== 'string') {
+		throw new TypeError('first argument should be a string');
+	}
+
 	const lowerCaseWords = [];
 	const words = getWords(str, options);
 
@@ -42,16 +41,7 @@ const findLowerCase = function (str, options = {}) {
 };
 
 const lowerCaseExists = function (str, options = {}) {
-	const words = getWords(str, options);
-	let exists = false;
-	for (const w of words) {
-		if (w.toLowerCase() === w) {
-			exists = true;
-			break;
-		}
-	}
-
-	return exists;
+	return Boolean(findLowerCase(str, options).length);
 };
 
 const countLowerCase = function (str, options = {}) {
