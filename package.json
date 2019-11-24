@@ -1,6 +1,6 @@
 {
   "name": "case-study",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Find, count or verify uppercase and lowercase words in a string",
   "main": "index.js",
   "repository": "TalhaAwan/case-study",
