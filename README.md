@@ -14,11 +14,11 @@ $ npm install case-study
 const caseStudy = require('case-study');
 const str = `Who do you think you just conned? The library's supposed to get all upper and lower case words. I WANT MY MONEY BACK. DO YOU HEAR ME? I ALSO WANT MY WASTED TIME BACK!!! AND I'M GONNA SUE YOU.`;
 
-m.findUpperCase(str);
+caseStudy.findUpperCase(str);
 
 // => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME","I","ALSO","WANT","MY","WASTED","TIME","BACK","AND","I'M","GONNA","SUE","YOU"]
 
-m.findLowerCase(str);
+caseStudy.findLowerCase(str);
 
 // => ["do","you","think","you","just","conned","library's","supposed","to","get","all","upper","and","lower","case","words"]
 
@@ -38,12 +38,12 @@ Returns an `Array` of lower case words
 Returns `Boolean`
 ```javascript
 const str = "This text does not have an uppercase word.";
-m.upperCaseExists(str);
+caseStudy.upperCaseExists(str);
 
 // => false
 
 const str = "This text DOES have an uppercase word.";
-m.upperCaseExists(str);
+caseStudy.upperCaseExists(str);
 
 // => true
 ```
@@ -53,12 +53,12 @@ Returns `Boolean`
 ```javascript
 
 const str = "GET OVER WITH THESE EXAMPLES ALREADY!";
-m.lowerCaseExists(str);
+caseStudy.lowerCaseExists(str);
 
 // => false
 
 const str = "Please get over with these examples as quickly as possible.";
-m.lowerCaseExists(str);
+caseStudy.lowerCaseExists(str);
 
 // => true
 ```
@@ -67,7 +67,7 @@ m.lowerCaseExists(str);
 Returns `Number`
 ```javascript
 const str = "FBI! HANDS BEHIND YOUR BACK AND GET DOWN ON THE FLOOR, NOW!";
-m.countUpperCase(str)
+caseStudy.countUpperCase(str)
 // => 12
 ```
 
@@ -75,7 +75,7 @@ m.countUpperCase(str)
 Returns `Number`
 ```javascript
 const str = "You have the right to remain silent. Anything you say can and will be used against you in a court of law."
-m.countUpperCase(str)
+caseStudy.countUpperCase(str)
 // => 20
 ```
 
@@ -93,12 +93,12 @@ Default: `true`
 Count words with contraction as one
 
 ```javascript
-m.findUpperCase(str, {contraction: false})
+caseStudy.findUpperCase(str, {contraction: false})
 // => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME","I","ALSO","WANT","MY","WASTED","TIME","BACK","AND","I","M","GONNA","SUE","YOU"]
 
 // notice split "I'M"
 
-m.findLowerCase(str, {contraction: false})
+caseStudy.findLowerCase(str, {contraction: false})
 // => ["do","you","think","you","just","conned","library","s","supposed","to","get","all","upper","and","lower","case","words"]
 
 // notice split "library's"
@@ -113,13 +113,13 @@ Default: `true`
 Include duplicate words.
 
 ```javascript
-m.findUpperCase(str, {duplicate: false})
+caseStudy.findUpperCase(str, {duplicate: false})
 // => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME","ALSO","WASTED","TIME","AND","I'M","GONNA","SUE"]
 
 // "I", "WANT", "MY", "BACK" and "YOU" duplicates removed
 
 
-m.findUpperCase(str, {duplicate: false})
+caseStudy.findUpperCase(str, {duplicate: false})
 // => ["do","you","think","just","conned","library's","supposed","to","get","all","upper","and","lower","case","words"]
 
 // "you" removed
@@ -132,10 +132,10 @@ Type: `Array`
 Only extract words passed in the list
 
 ```javascript
-m.findUpperCase(str, {list: ['WANT', 'MY', 'MONEY', 'BACK']})
+caseStudy.findUpperCase(str, {list: ['WANT', 'MY', 'MONEY', 'BACK']})
 // => ["WANT","MY","MONEY","BACK","WANT","MY","BACK"]
 
-m.findLowerCase(str, {list: ['think', 'you', 'upper', 'lower']})
+caseStudy.findLowerCase(str, {list: ['think', 'you', 'upper', 'lower']})
 // => ["you","think","you","upper","lower"]
 ```
 
@@ -147,10 +147,10 @@ Type: `Array`
 Ignore words passed in the list
 
 ```javascript
-m.findUpperCase(str, {exclude: ['WANT', 'MY', 'MONEY', 'BACK']})
+caseStudy.findUpperCase(str, {exclude: ['WANT', 'MY', 'MONEY', 'BACK']})
 // => ["I","DO","YOU","HEAR","ME","I","ALSO","WASTED","TIME","AND","I'M","GONNA","SUE","YOU"]
 
-m.findLowerCase(str, {exclude: ['think', 'you', 'upper', 'lower']})
+caseStudy.findLowerCase(str, {exclude: ['think', 'you', 'upper', 'lower']})
 // => ["do","just","conned","library's","supposed","to","get","all","and","case","words"]
 ```
 
