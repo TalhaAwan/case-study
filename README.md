@@ -12,15 +12,21 @@ $ npm install case-study
 ## Usage
 ```javascript
 const caseStudy = require('case-study');
-const str = `Who do you think you just conned? The library's supposed to get all upper and lower case words. I WANT MY MONEY BACK. DO YOU HEAR ME? I ALSO WANT MY WASTED TIME BACK!!! AND I'M GONNA SUE YOU.`;
+const str = `Who do you think you just conned? 
+The library's supposed to get all upper and lower case words. 
+I WANT MY MONEY BACK ... DO YOU HEAR ME? I ALSO WANT MY WASTED TIME BACK!!! 
+AND I'M GONNA SUE YOU.`;
 
 caseStudy.findUpperCase(str);
 
-// => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME","I","ALSO","WANT","MY","WASTED","TIME","BACK","AND","I'M","GONNA","SUE","YOU"]
+// => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME",
+// "I","ALSO","WANT","MY","WASTED","TIME","BACK","AND","I'M",
+// "GONNA","SUE","YOU"]
 
 caseStudy.findLowerCase(str);
 
-// => ["do","you","think","you","just","conned","library's","supposed","to","get","all","upper","and","lower","case","words"]
+// => ["do","you","think","you","just","conned","library's",
+// "supposed","to","get","all","upper","and","lower","case","words"]
 
 ```
 
@@ -74,7 +80,8 @@ caseStudy.countUpperCase(str)
 ### countLowerCase(str, options)
 Returns `Number`
 ```javascript
-const str = "You have the right to remain silent. Anything you say can and will be used against you in a court of law."
+const str = `You have the right to remain silent. 
+Anything you say can and will be used against you in a court of law.`
 caseStudy.countUpperCase(str)
 // => 20
 ```
@@ -94,12 +101,15 @@ Count words with contraction as one
 
 ```javascript
 caseStudy.findUpperCase(str, {contraction: false})
-// => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME","I","ALSO","WANT","MY","WASTED","TIME","BACK","AND","I","M","GONNA","SUE","YOU"]
+// => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR",
+// "ME","I","ALSO","WANT","MY","WASTED","TIME","BACK",
+// "AND","I","M","GONNA","SUE","YOU"]
 
 // notice split "I'M"
 
 caseStudy.findLowerCase(str, {contraction: false})
-// => ["do","you","think","you","just","conned","library","s","supposed","to","get","all","upper","and","lower","case","words"]
+// => ["do","you","think","you","just","conned","library","s",
+// "supposed","to","get","all","upper","and","lower","case","words"]
 
 // notice split "library's"
 
@@ -114,13 +124,15 @@ Include duplicate words.
 
 ```javascript
 caseStudy.findUpperCase(str, {duplicate: false})
-// => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME","ALSO","WASTED","TIME","AND","I'M","GONNA","SUE"]
+// => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME",
+// "ALSO","WASTED","TIME","AND","I'M","GONNA","SUE"]
 
 // "I", "WANT", "MY", "BACK" and "YOU" duplicates removed
 
 
 caseStudy.findUpperCase(str, {duplicate: false})
-// => ["do","you","think","just","conned","library's","supposed","to","get","all","upper","and","lower","case","words"]
+// => ["do","you","think","just","conned","library's",
+// "supposed","to","get","all","upper","and","lower","case","words"]
 
 // "you" removed
 ```
@@ -148,10 +160,12 @@ Ignore words passed in the list
 
 ```javascript
 caseStudy.findUpperCase(str, {exclude: ['WANT', 'MY', 'MONEY', 'BACK']})
-// => ["I","DO","YOU","HEAR","ME","I","ALSO","WASTED","TIME","AND","I'M","GONNA","SUE","YOU"]
+// => ["I","DO","YOU","HEAR","ME","I","ALSO","WASTED","TIME",
+// "AND","I'M","GONNA","SUE","YOU"]
 
 caseStudy.findLowerCase(str, {exclude: ['think', 'you', 'upper', 'lower']})
-// => ["do","just","conned","library's","supposed","to","get","all","and","case","words"]
+// => ["do","just","conned","library's","supposed","to",
+// "get","all","and","case","words"]
 ```
 
 ___
