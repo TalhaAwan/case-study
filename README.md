@@ -96,7 +96,7 @@ Count words with contraction as one
 ```javascript
 let str = `YOU SHOULDN'T'VE HANDLED CONTRACTIONS! WHAT'VE YOU DONE?.`;
 caseStudy.findUpperCase(str, {contraction: false})
-// => ["YOU","SHOULDN","T","VE","INCLUDED","CONTRACTIONS","WHAT",
+// => ["YOU","SHOULDN","T","VE","HANDLED","CONTRACTIONS","WHAT",
 // "VE","YOU","DONE"]
 
 str = `d'y'all think I shouldn't've handled contractions? 
@@ -115,20 +115,16 @@ Default: `true`
 Include duplicate words.
 
 ```javascript
-// str = `Who do you think you just conned? ...` (at the top of the page)
+let str = `WRITING ENTIRELY IN BLOCK CAPITAL LETTERS 
+IS SHOUTING, AND SHOUTING IS RUDE.`;
+caseStudy.findUpperCase(str, {duplicate: false});
+// => ["WRITING","ENTIRELY","IN","BLOCK","CAPITAL",
+// "LETTERS","IS","SHOUTING","AND","RUDE"]
 
+str = `He was a strange man, very strange man, indeed.`;
 caseStudy.findUpperCase(str, {duplicate: false})
-// => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME",
-// "ALSO","WASTED","TIME","AND","I'M","GONNA","SUE"]
+// => ["was","a","strange","man","very","indeed"]
 
-// "I", "WANT", "MY", "BACK" and "YOU" duplicates removed
-
-
-caseStudy.findUpperCase(str, {duplicate: false})
-// => ["do","you","think","just","conned","library's",
-// "supposed","to","get","all","upper","and","lower","case","words"]
-
-// extra "you" removed
 ```
 
 ### list
@@ -138,11 +134,14 @@ Type: `Array`
 Only extract words passed in the list
 
 ```javascript
-caseStudy.findUpperCase(str, {list: ['WANT', 'MY', 'MONEY', 'BACK']})
-// => ["WANT","MY","MONEY","BACK","WANT","MY","BACK"]
+let str = "FAILURE? THE WORD FAILURE IS NOT IN MY DICTIONARY!";
+caseStudy.findUpperCase(str, { list: ['FAILURE'] })
+// => ["FAILURE", FAILURE]
 
-caseStudy.findLowerCase(str, {list: ['think', 'you', 'upper', 'lower']})
-// => ["you","think","you","upper","lower"]
+let str = `Unfortunately, we can't give you any more discount.
+We've given you the maximum discount that was possible`;
+caseStudy.findLowerCase(str, {list: ['you', 'discount']})
+// => ["you","discount","you","discount"]
 ```
 
 
@@ -153,13 +152,14 @@ Type: `Array`
 Ignore words passed in the list
 
 ```javascript
-caseStudy.findUpperCase(str, {exclude: ['WANT', 'MY', 'MONEY', 'BACK']})
-// => ["I","DO","YOU","HEAR","ME","I","ALSO","WASTED","TIME",
-// "AND","I'M","GONNA","SUE","YOU"]
+let str = "PLEASE DO NOT REMOVE THE IMPORTANT PARTS OF THE SPEECH!";
+caseStudy.findUpperCase(str, {exclude: ['DO', 'NOT']})
+// => ["PLEASE","REMOVE","THE","IMPORTANT","PARTS","OF","THE","SPEECH"]
 
-caseStudy.findLowerCase(str, {exclude: ['think', 'you', 'upper', 'lower']})
-// => ["do","just","conned","library's","supposed","to",
-// "get","all","and","case","words"]
+str = `I've just told you, it's not possible.`;
+caseStudy.findLowerCase(str, {exclude: ['you', 'not']})
+// => ["ve","just","told","it's","possible"]
+
 ```
 
 ___
