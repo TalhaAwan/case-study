@@ -41,11 +41,11 @@ Returns an `Array` of lower case words
 ### upperCaseExists(str, options)
 Returns `Boolean`
 ```javascript
-const str = "This text does not have an uppercase word.";
+let str = "This text does not have an uppercase word.";
 caseStudy.upperCaseExists(str);
 // => false
 
-const str = "This text DOES have an uppercase word.";
+str = "This text DOES have an uppercase word.";
 caseStudy.upperCaseExists(str);
 // => true
 ```
@@ -54,11 +54,11 @@ caseStudy.upperCaseExists(str);
 Returns `Boolean`
 ```javascript
 
-const str = "GET OVER WITH THESE EXAMPLES ALREADY!";
+let str = "GET OVER WITH THESE EXAMPLES ALREADY!";
 caseStudy.lowerCaseExists(str);
 // => false
 
-const str = "Please get over with these examples as quickly as possible.";
+str = "Please get over with these examples as quickly as possible.";
 caseStudy.lowerCaseExists(str);
 // => true
 ```
