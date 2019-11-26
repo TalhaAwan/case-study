@@ -5,6 +5,8 @@ const str = `"THERE IS NO HARRY POTTER HERE!" he roared, now holding the receive
 const doubleContractionUC = 'YOU SHOULDN\'T\'VE HANDLED CONTRACTIONS! WHAT\'VE YOU DONE?.';
 const doubleContractionLC = `d'y'all think I shouldn't've handled contractions? 
 But what's the problem with that?`;
+const wordsWithNumbers = `H2O, B2B, B2C, 3G, G8, 7UP, K2'S are uppercase words
+with numbers. Whereas lowercase examples are, gr8, 1to1, one2one, 8pm, pg13, 8a's.`;
 test('findUpperCase', t => {
 	t.deepEqual(m.findUpperCase(str), ['THERE',
 		'IS',
@@ -30,6 +32,14 @@ test('findUpperCase', t => {
 		'NEAR',
 		'MY',
 		'FAMILY']);
+
+	t.deepEqual(m.findUpperCase(wordsWithNumbers), ['H2O',
+		'B2B',
+		'B2C',
+		'3G',
+		'G8',
+		'7UP',
+		'K2\'S']);
 
 	t.deepEqual(m.findUpperCase(doubleContractionUC), ['YOU',
 		'SHOULDN\'T\'VE',
@@ -70,6 +80,17 @@ test('findUpperCase with option `contraction` === false', t => {
 		'NEAR',
 		'MY',
 		'FAMILY']);
+
+	t.deepEqual(m.findUpperCase(wordsWithNumbers, {
+		contraction: false
+	}), ['H2O',
+		'B2B',
+		'B2C',
+		'3G',
+		'G8',
+		'7UP',
+		'K2',
+		'S']);
 
 	t.deepEqual(m.findUpperCase(doubleContractionUC, {
 		contraction: false
@@ -200,6 +221,21 @@ test('findLowerCase', t => {
 		'might',
 		'explode']);
 
+	t.deepEqual(m.findLowerCase(wordsWithNumbers), ['are',
+		'uppercase',
+		'words',
+		'with',
+		'numbers',
+		'lowercase',
+		'examples',
+		'are',
+		'gr8',
+		'1to1',
+		'one2one',
+		'8pm',
+		'pg13',
+		'8a\'s']);
+
 	t.deepEqual(m.findLowerCase(doubleContractionLC), ['d\'y\'all',
 		'think',
 		'shouldn\'t\'ve',
@@ -231,6 +267,24 @@ test('findLowerCase with option `contraction` === false', t => {
 		'it',
 		'might',
 		'explode']);
+
+	t.deepEqual(m.findLowerCase(wordsWithNumbers, {
+		contraction: false
+	}), ['are',
+		'uppercase',
+		'words',
+		'with',
+		'numbers',
+		'lowercase',
+		'examples',
+		'are',
+		'gr8',
+		'1to1',
+		'one2one',
+		'8pm',
+		'pg13',
+		'8a',
+		's']);
 
 	t.deepEqual(m.findLowerCase(doubleContractionLC, {
 		contraction: false

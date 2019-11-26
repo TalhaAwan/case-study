@@ -26,6 +26,15 @@ caseStudy.findLowerCase(str);
 // => ["do","you","think","you","just","conned","library's",
 // "supposed","to","get","all","upper","and","lower","case","words"]
 
+const wordsWithNumbers = `K2, H2O, B2B, B2C, AK47, 3G, G8, 7UP, 
+and gr8, 1to1, one2one, 8pm.`;
+
+caseStudy.findUpperCase(wordsWithNumbers);
+// => ["K2","H2O","B2B","B2C","AK47","3G","G8","7UP"]
+
+caseStudy.findLowerCase(wordsWithNumbers);
+// => ["and","gr8","1to1","one2one","8pm"]
+
 ```
 
 ___
