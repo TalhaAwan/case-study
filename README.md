@@ -131,7 +131,7 @@ caseStudy.findUpperCase(str, {duplicate: false});
 // "LETTERS","IS","SHOUTING","AND","RUDE"]
 
 str = `He was a strange man, very strange man, indeed.`;
-caseStudy.findUpperCase(str, {duplicate: false})
+caseStudy.findLowerCase(str, {duplicate: false})
 // => ["was","a","strange","man","very","indeed"]
 
 ```
