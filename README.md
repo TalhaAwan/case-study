@@ -12,19 +12,15 @@ $ npm install case-study
 ## Usage
 ```javascript
 const caseStudy = require('case-study');
-const str = `Who do you think you just conned? 
-The library's supposed to get all upper and lower case words. 
-I WANT MY MONEY BACK ... DO YOU HEAR ME? I ALSO WANT MY WASTED TIME BACK!!! 
-AND I'M GONNA SUE YOU.`;
+const str = `The library's supposed to get all upper and lower case words. 
+I WANT MY MONEY BACK ... AND I'M GONNA SUE YOU.`;
 
 caseStudy.findUpperCase(str);
-// => ["I","WANT","MY","MONEY","BACK","DO","YOU","HEAR","ME",
-// "I","ALSO","WANT","MY","WASTED","TIME","BACK","AND","I'M",
+// => ["I","WANT","MY","MONEY","BACK","AND","I'M",
 // "GONNA","SUE","YOU"]
 
 caseStudy.findLowerCase(str);
-// => ["do","you","think","you","just","conned","library's",
-// "supposed","to","get","all","upper","and","lower","case","words"]
+// => ["library's", "supposed","to","get","all","upper","and","lower","case","words"]
 
 const wordsWithNumbers = `K2, H2O, B2B, B2C, AK47, 3G, G8, 7UP, 
 and gr8, 1to1, one2one, 8pm.`;
@@ -49,45 +45,15 @@ Returns an `Array` of lower case words
 
 ### upperCaseExists(str, options)
 Returns `Boolean`
-```javascript
-let str = "This text does not have an uppercase word.";
-caseStudy.upperCaseExists(str);
-// => false
-
-str = "This text DOES have an uppercase word.";
-caseStudy.upperCaseExists(str);
-// => true
-```
 
 ### lowerCaseExists(str, options)
 Returns `Boolean`
-```javascript
-
-let str = "GET OVER WITH THESE EXAMPLES ALREADY!";
-caseStudy.lowerCaseExists(str);
-// => false
-
-str = "Please get over with these examples as quickly as possible.";
-caseStudy.lowerCaseExists(str);
-// => true
-```
 
 ### countUpperCase(str, options)
 Returns `Number`
-```javascript
-const str = "FBI! HANDS BEHIND YOUR BACK AND GET DOWN ON THE FLOOR, NOW!";
-caseStudy.countUpperCase(str)
-// => 12
-```
 
 ### countLowerCase(str, options)
 Returns `Number`
-```javascript
-const str = `You have the right to remain silent. 
-Anything you say can and will be used against you in a court of law.`
-caseStudy.countUpperCase(str)
-// => 20
-```
 
 ___
 
@@ -103,16 +69,13 @@ Default: `true`
 Count words with contraction as one
 
 ```javascript
-let str = `YOU SHOULDN'T'VE HANDLED CONTRACTIONS! WHAT'VE YOU DONE?.`;
+let str = `YOU SHOULDN'T'VE HANDLED CONTRACTIONS!`;
 caseStudy.findUpperCase(str, {contraction: false})
-// => ["YOU","SHOULDN","T","VE","HANDLED","CONTRACTIONS","WHAT",
-// "VE","YOU","DONE"]
+// => ["YOU","SHOULDN","T","VE","HANDLED","CONTRACTIONS"]
 
-str = `d'y'all think I shouldn't've handled contractions? 
-But what's the problem with that?`;
+str = `d'y'all think I shouldn't've handled contractions?`;
 caseStudy.findLowerCase(str, {contraction: false})
-// => ["d","y","all","think","shouldn","t","ve","handled",
-// "contractions","what","s","the","problem","with","that"]
+// => ["d","y","all","think","shouldn","t","ve","handled","contractions"]
 
 ```
 
@@ -148,7 +111,7 @@ caseStudy.findUpperCase(str, { list: ['FAILURE'] })
 // => ["FAILURE", FAILURE]
 
 let str = `Unfortunately, we can't give you any more discount.
-We've given you the maximum discount that was possible`;
+We've given you the maximum possible discount.`;
 caseStudy.findLowerCase(str, {list: ['you', 'discount']})
 // => ["you","discount","you","discount"]
 ```
