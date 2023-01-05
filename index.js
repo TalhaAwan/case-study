@@ -38,9 +38,9 @@ const countLowerCase = function (str, options = {}) {
 const getUpperCaseWords = function (str, options) {
 	let words = [];
 	if (options.contraction === false) {
-		words = str.match(/(\b[A-Z0-9][A-Z0-9]+|\b[A-Z]\b)/g);
+		words = str.match(/(\b[A-Z0-9][A-Z0-9]+\b|\b[A-Z]\b)/g);
 	} else {
-		words = str.match(/(\b[A-Z0-9]['A-Z0-9]+|\b[A-Z]\b)/g);
+		words = str.match(/(\b[A-Z0-9]['A-Z0-9]+\b|\b[A-Z]\b)/g);
 	}
 
 	return words;
@@ -49,9 +49,9 @@ const getUpperCaseWords = function (str, options) {
 const getLowerCaseWords = function (str, options) {
 	let words = [];
 	if (options.contraction === false) {
-		words = str.match(/(\b[a-z0-9][a-z0-9]+|\b[a-z]\b)/g);
+		words = str.match(/(\b[a-z0-9][a-z0-9]+\b|\b[a-z]\b)/g);
 	} else {
-		words = str.match(/(\b[a-z0-9]['a-z0-9]+|\b[a-z]\b)/g);
+		words = str.match(/(\b[a-z0-9]['a-z0-9]+\b|\b[a-z]\b)/g);
 	}
 
 	return words;
