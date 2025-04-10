@@ -22,6 +22,6 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^2.4.0",
-    "xo": "^0.26.1"
+    "xo": "^0.60.0"
   }
 }
