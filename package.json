@@ -3,6 +3,7 @@
   "version": "1.0.12",
   "description": "Find, count or verify uppercase and lowercase words in a string",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": "TalhaAwan/case-study",
   "homepage": "https://github.com/TalhaAwan/case-study#readme",
   "scripts": {
