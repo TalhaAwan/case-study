@@ -69,16 +69,22 @@ Type: `Object`
 Type: `Boolean`
 Default: `true`
 
-Treat contractions as a single word
+Treat contractions as a single word.
 
 ```javascript
 let str = `CONTRACTIONS ARE HANDLED TOO. SUCH AS SHOULDN'T'VE!`;
-caseStudy.findUpperCase(str, { contraction: false });
+caseStudy.findUpperCase(str);
 // => ["CONTRACTIONS","ARE","HANDLED","TOO","SUCH","AS","SHOULDN'T'VE"]
 
+caseStudy.findUpperCase(str, { contraction: false });
+// => ["CONTRACTIONS","ARE","HANDLED","TOO","SUCH","AS","SHOULDN","T","VE"]
+
 str = `Similarly in lowercase. Examples: d'y'all and shouldn't've.`;
+caseStudy.findLowerCase(str);
+// => ["in","lowercase","d'y'all","and", "shouldn't've"]
+
 caseStudy.findLowerCase(str, { contraction: false });
-// => ["in","lowercase","d'y'all","and","shouldn't've"]
+// => ["in","lowercase","d","y","all","and","shouldn","t","ve" ]
 ```
 
 ### duplicate
