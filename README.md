@@ -1,7 +1,6 @@
-# case-study [![Build Status](https://travis-ci.com/TalhaAwan/case-study.svg?branch=master)](https://travis-ci.com/TalhaAwan/case-study)
+# case-study ![build](https://github.com/TalhaAwan/case-study/actions/workflows/build.yml/badge.svg) ![npm](https://img.shields.io/npm/v/case-study) ![downloads](https://img.shields.io/npm/dm/case-study)
 
-> Get, count, or verify uppercase and lowercase words in a string
-
+> Extract, count, or check uppercase and lowercase words in any string.
 
 ## Install
 
@@ -10,17 +9,16 @@ $ npm install case-study
 ```
 
 ## Usage
+
 ```javascript
-const caseStudy = require('case-study');
-const str = `The library's supposed to get all upper and lower case words. 
-I WANT MY MONEY BACK ... AND I'M GONNA SUE YOU.`;
+const caseStudy = require("case-study");
+const wordsWithCase = `The documentation is important. PLEASE MAKE SURE YOU'VE READ THE DOCUMENTATION.`;
 
-caseStudy.findUpperCase(str);
-// => ["I","WANT","MY","MONEY","BACK","AND","I'M",
-// "GONNA","SUE","YOU"]
+caseStudy.findUpperCase(wordsWithCase);
+// => ["PLEASE","MAKE","SURE","YOU'VE","READ","THE","DOCUMENTATION"]
 
-caseStudy.findLowerCase(str);
-// => ["library's", "supposed","to","get","all","upper","and","lower","case","words"]
+caseStudy.findLowerCase(wordsWithCase);
+// => ["documentation","is","important"]
 
 const wordsWithNumbers = `K2, H2O, B2B, B2C, AK47, 3G, G8, 7UP, 
 and gr8, 1to1, one2one, 8pm.`;
@@ -30,32 +28,37 @@ caseStudy.findUpperCase(wordsWithNumbers);
 
 caseStudy.findLowerCase(wordsWithNumbers);
 // => ["and","gr8","1to1","one2one","8pm"]
-
 ```
 
-___
+---
 
 ## APIs
 
 ### findUpperCase(str, options)
-Returns an `Array` of upper case words
+
+Returns: `Array<String>` of uppercase words
 
 ### findLowerCase(str, options)
-Returns an `Array` of lower case words
+
+Returns: `Array<String>` of lowercase words
 
 ### upperCaseExists(str, options)
-Returns `Boolean`
+
+Returns: `Boolean`
 
 ### lowerCaseExists(str, options)
-Returns `Boolean`
+
+Returns: `Boolean`
 
 ### countUpperCase(str, options)
-Returns `Number`
+
+Returns: `Number`
 
 ### countLowerCase(str, options)
-Returns `Number`
 
-___
+Returns: `Number`
+
+---
 
 ## Options
 
@@ -66,17 +69,16 @@ Type: `Object`
 Type: `Boolean`
 Default: `true`
 
-Count words with contraction as one
+Treat contractions as a single word
 
 ```javascript
-let str = `YOU SHOULDN'T'VE HANDLED CONTRACTIONS!`;
-caseStudy.findUpperCase(str, {contraction: false})
-// => ["YOU","SHOULDN","T","VE","HANDLED","CONTRACTIONS"]
+let str = `CONTRACTIONS ARE HANDLED TOO. SUCH AS SHOULDN'T'VE!`;
+caseStudy.findUpperCase(str, { contraction: false });
+// => ["CONTRACTIONS","ARE","HANDLED","TOO","SUCH","AS","SHOULDN'T'VE"]
 
-str = `d'y'all think I shouldn't've handled contractions?`;
-caseStudy.findLowerCase(str, {contraction: false})
-// => ["d","y","all","think","shouldn","t","ve","handled","contractions"]
-
+str = `Similarly in lowercase. Examples: d'y'all and shouldn't've.`;
+caseStudy.findLowerCase(str, { contraction: false });
+// => ["in","lowercase","d'y'all","and","shouldn't've"]
 ```
 
 ### duplicate
@@ -87,16 +89,13 @@ Default: `true`
 Include duplicate words.
 
 ```javascript
-let str = `WRITING ENTIRELY IN BLOCK CAPITAL LETTERS 
-IS SHOUTING, AND SHOUTING IS RUDE.`;
-caseStudy.findUpperCase(str, {duplicate: false});
-// => ["WRITING","ENTIRELY","IN","BLOCK","CAPITAL",
-// "LETTERS","IS","SHOUTING","AND","RUDE"]
+let str = `SO SO MANY WORDS!`;
+caseStudy.findUpperCase(str, { duplicate: false });
+// => ["SO","MANY","WORDS"]
 
-str = `He was a strange man, very strange man, indeed.`;
-caseStudy.findLowerCase(str, {duplicate: false})
-// => ["was","a","strange","man","very","indeed"]
-
+str = `He had a one on one meeting.`;
+caseStudy.findLowerCase(str, { duplicate: false });
+// => ["had","a","one","on","meeting"]
 ```
 
 ### list
@@ -106,16 +105,14 @@ Type: `Array`
 Only extract words passed in the list
 
 ```javascript
-let str = "FAILURE? THE WORD FAILURE IS NOT IN MY DICTIONARY!";
-caseStudy.findUpperCase(str, { list: ['FAILURE'] })
-// => ["FAILURE", FAILURE]
+let str = "WARNING: THE SYSTEM WARNING HAS BEEN LOGGED SUCCESSFULLY.";
+caseStudy.findUpperCase(str, { list: ["WARNING"] });
+// => ["WARNING", "WARNING"]
 
-let str = `Unfortunately, we can't give you any more discount.
-We've given you the maximum possible discount.`;
-caseStudy.findLowerCase(str, {list: ['you', 'discount']})
-// => ["you","discount","you","discount"]
+let str = `The package was delivered, but the delivery confirmation is pending.`;
+caseStudy.findLowerCase(str, { list: ["package", "delivery"] });
+// => ["package", "delivery"]
 ```
-
 
 ### exclude
 
@@ -124,21 +121,21 @@ Type: `Array`
 Ignore words passed in the list
 
 ```javascript
-let str = "PLEASE DO NOT REMOVE THE IMPORTANT PARTS OF THE SPEECH!";
-caseStudy.findUpperCase(str, {exclude: ['DO', 'NOT']})
-// => ["PLEASE","REMOVE","THE","IMPORTANT","PARTS","OF","THE","SPEECH"]
+let str = "PLEASE FOLLOW THE SETUP INSTRUCTIONS IN THE MANUAL.";
+caseStudy.findUpperCase(str, { exclude: ["PLEASE", "SETUP"] });
+// => ["FOLLOW", "THE", "INSTRUCTIONS", "IN", "THE", "MANUAL"]
 
-str = `I've just told you, it's not possible.`;
-caseStudy.findLowerCase(str, {exclude: ['you', 'not']})
-// => ["ve","just","told","it's","possible"]
-
+let str = `your changes saved successfully!`;
+caseStudy.findLowerCase(str, { exclude: ["your"] });
+// => ["changes", "saved",  "successfully"]
 ```
 
-___
+---
 
 ## Related
 
-- [extract-numbers](https://www.npmjs.com/package/extract-numbers)
+- [extract-numbers](https://www.npmjs.com/package/extract-numbers) - Extract numbers from strings
+- [deeply-nested](https://www.npmjs.com/package/deeply-nested) - Access deeply nested properties in objects
 
 ## License
 
